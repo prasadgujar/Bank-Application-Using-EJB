@@ -24,7 +24,7 @@ public class OpenAccount extends HttpServlet {
         password = request.getParameter("pass");
         result = loginex.validUser(username, password);
         out.println(result);
-       
+        
        
             InitialContext context=new InitialContext();  
             BankRemote b=(BankRemote)context.lookup("stateful123");  

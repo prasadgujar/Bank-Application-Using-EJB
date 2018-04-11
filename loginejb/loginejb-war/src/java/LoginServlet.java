@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
@@ -53,10 +53,28 @@ public class LoginServlet extends HttpServlet {
         password = request.getParameter("pass");
         result = loginex.validUser(username, password);
         out.println(result);
+        String ok  = "valid";
+        //if(result.equals(ok))
+        //{
+         InitialContext context=new InitialContext();  
+            BankRemote b=(BankRemote)context.lookup("stateful123");  
+              
+            request.getSession().setAttribute("remote",b);  
+            request.getRequestDispatcher("/operation.jsp").forward(request, response);
+        //}
         }
 catch(Exception e){System.out.println(e);}  
        
        }
+    
+    
+       
+           
+        
+              
+            
+        
+        
     }
 
    

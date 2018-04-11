@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="OpenAccount" method="get">
+        <form action="LoginServlet" method="get">
             Enter Username: <input type = "text" name="username"><br/>
             Enter Password: <input type="password" name="pass"><br/>
             <input type="submit" value="login">
